@@ -15,15 +15,10 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path
-
-
-def my_view(request):
-    return HttpResponse('Um dia strings')
-
+from django.urls import include, path
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('sobre/', my_view),
+    path('', include('recipes.urls'))
 ]
